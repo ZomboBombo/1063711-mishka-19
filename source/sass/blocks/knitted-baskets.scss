@@ -184,15 +184,13 @@
 // *** 2) Медиа для "Десктопной" версии сайта ***
 @media (min-width: $width--desktop) {
   .knitted-baskets {
-    position: relative;
-
-    margin-top: 70px;
+    margin-top: 9px;
   }
 
 
   .knitted-baskets__heading-place {
-    position: absolute;
-    top: 53px;
+    position: relative;
+    top: 114px;
     left: 44px;
     z-index: 1;
 
