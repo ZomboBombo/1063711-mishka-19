@@ -194,6 +194,7 @@
     position: absolute;
     top: -13px;
     left: 50%;
+    z-index: 2;
 
     transform: translateX(-50%);
 
@@ -212,7 +213,7 @@
 
       flex-direction: row;
 
-      background-color: transparent;
+      // background-color: transparent;
     }
   }
 
