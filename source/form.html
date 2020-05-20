@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Вязание на заказ</title>
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
+  </head>
+  <body class="body">
+    <!--
+      *** SVG-спрайт ***
+    -->
+    <div style="display: none">
+      <include src="build/img/sprite.svg"></include>
+    </div>
+
+
+    <!--
+    ***************************
+    *** Главная Шапка сайта ***
+    ***************************
+    -->
+    <div class="wrapper wrapper--site-header">
+      <header class="container site-header">
+        <!-- Обёртка для логотипа и кнопки открытия меню на мобильной версии сайта -->
+        <div class="site-header__logo-placement">
+          <!-- Логотип магазина рукоделия «Мишка» -->
+          <a href="index.html" class="site-header__logo logo">
+            <picture>
+              <source media="(min-width: 1150px)" srcset="img/logo-desktop-optimised.svg">
+              <source media="(min-width: 768px)" srcset="img/logo-tablet-optimised.svg">
+              <img class="logo__image" src="img/logo-mobile-optimised.svg" width="86" height="35" alt="Логотип магазина «Мишка»">
+            </picture>
+          </a>
+
+          <!-- Кнопка закрытия выпадающего меню в мобильной версии сайта -->
+          <button type="button" class="site-header__toggle toggle-menu-button" aria-label="Открыть/закрыть меню">
+            <span class="toggle-menu-button__pseudoline"></span>
+          </button>
+        </div>
+
+
+        <!-- Навигация по сайту: переход на внутренние страницы -->
+        <nav class="site-header__main-navigation">
+          <!-- Главная навигация: переход на внутренние страницы -->
+          <ul class="site-header__inner-navigation site-navigation site-navigation--inner-nav">
+            <li class="site-navigation__item">
+              <a href="catalog.html" class="site-navigation__link">Каталог товаров</a>
+            </li>
+            <li class="site-navigation__item">
+              <a href="form.html" class="site-navigation__link">Вязание на заказ</a>
+            </li>
+          </ul>
+
+          <!-- Пользовательская навигация: поиск по сайту, отображение товара в корзине -->
+          <ul class="site-header__user-navigation site-navigation site-navigation--user-nav">
+            <li class="site-navigation__item site-navigation__item--search-item">
+              <a href="" class="site-navigation__link">
+                <svg class="site-navigation__icon site-navigation__icon--search">
+                  <use xlink:href="#icon-search"></use>
+                </svg>
+                <span class="site-navigation__link-title site-navigation__link-title--search">Поиск по сайту</span>
+              </a>
+            </li>
+            <li class="site-navigation__item site-navigation__item--cart-item">
+              <a href="" class="site-navigation__link">
+                <svg class="site-navigation__icon site-navigation__icon--cart">
+                  <use xlink:href="#icon-cart"></use>
+                </svg>
+                <span class="site-navigation__link-title site-navigation__link-title--cart">Корзина: пока пуста</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Навигация по событиям: новые поступления и распродажа -->
+          <ul class="site-header__events-navigation site-navigation site-navigation--events">
+            <li class="site-navigation__item">
+              <a href="" class="site-navigation__link">Новые поступления</a>
+            </li>
+            <li class="site-navigation__item">
+              <a href="" class="site-navigation__link">Распродажа</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+
+    <!--
+    **************************************************
+    *** Главный контент: основное содержимое сайта ***
+    **************************************************
+    -->
+    <main class="main-content">
+      <section class="main-content__head content-header content-header--inner-page">
+        <h1 class="main-content__main-heading main-content__main-heading--inner-page">Вязание на заказ</h1>
+
+
+        <!-- Заполненная линия: декоративный элемент для украшения Главной страницы (начиная с "планшетной" версии сайта) -->
+        <div class="fill-zigzag-line fill-zigzag-line--inner-page"></div>
+      </section>
+
+      <p class="container main-content__form-description">Мы будем рады воплотить в жизнь Ваши пожелания! Заполните простую форму заказа и мы свяжемся с Вами, чтобы уточнить детали.</p>
+
+      <!--
+          Форма заказа товаров
+          ____________________
+
+            Содержит разделы:
+              1) "Тип" — указатель типа товара (может быть выбран только один тип);
+              2) "Цвет" — указатель цвета товара (может быть выбрано несколько разынх цветов);
+              3) "ФИО" — информация о Ф.И.О. клиента;
+              4) "Контактная информация" — информация о телефоне и э/почте клиента;
+              5) "Доп" — комментарии к заказу (личные пожелания клиента).
+      -->
+      <form class="main-content__form order-form" action="https://echo.htmlacademy.ru" method="post">
+
+        <!-- Раздел "Тип": содержит указатели типа товара -->
+        <fieldset class="container order-form__element order-form__element--type">
+          <div class="order-form-wrapper">
+            <h2 class="order-form__element-heading order-form__element-heading--type">Тип</h2>
+
+            <!-- Список полей раздела "Тип" -->
+            <ul class="order-form__element-options-list form-options form-options--type-flags">
+              <li class="form-options__item">
+                <input type="radio" name="type-of-product" value="interior-accessories" id="type-interior-accessories" class="form-options__radiobutton visually-hidden" checked="">
+
+                <label for="type-interior-accessories" class="form-options__label form-options__label--type">Аксессуар для интерьера</label>
+              </li>
+
+              <li class="form-options__item">
+                <input type="radio" name="type-of-product" value="children-toy" id="type-children-toy" class="form-options__radiobutton visually-hidden">
+
+                <label for="type-children-toy" class="form-options__label form-options__label--type">Детская игрушка</label>
+              </li>
+            </ul>
+          </div>
+        </fieldset>
+
+
+        <!-- Раздел "Цвет": содержит указатели цвета товара -->
+        <fieldset class="order-form__element order-form__element--color">
+          <div class="container order-form-wrapper">
+            <h2 class="order-form__element-heading order-form__element-heading--color">Цвет</h2>
+
+            <!-- Список полей раздела "Цвет" -->
+            <ul class="order-form__element-options-list form-options form-options--color-flags">
+              <li class="form-options__item">
+                <input type="checkbox" name="color__white" id="color-white" class="form-options__checkbox visually-hidden" checked="">
+
+                <label for="color-white" class="form-options__label form-options__label--color">Белый</label>
+              </li>
+
+              <li class="form-options__item">
+                <input type="checkbox" name="color__grey" id="color-grey" class="form-options__checkbox visually-hidden" checked="">
+
+                <label for="color-grey" class="form-options__label form-options__label--color">Серый</label>
+              </li>
+
+              <li class="form-options__item">
+                <input type="checkbox" name="color__tiffany" id="color-tiffany" class="form-options__checkbox visually-hidden">
+
+                <label for="color-tiffany" class="form-options__label form-options__label--color">«Тиффани»</label>
+              </li>
+
+              <li class="form-options__item">
+                <input type="checkbox" name="color__black" id="color-black" class="form-options__checkbox visually-hidden">
+
+                <label for="color-black" class="form-options__label form-options__label--color">Чёрный</label>
+              </li>
+
+              <li class="form-options__item">
+                <input type="checkbox" name="color__pink" id="color-pink" class="form-options__checkbox visually-hidden">
+
+                <label for="color-pink" class="form-options__label form-options__label--color">Розовый</label>
+              </li>
+
+              <li class="form-options__item">
+                <input type="checkbox" name="color__orange" id="color-orange" class="form-options__checkbox visually-hidden">
+
+                <label for="color-orange" class="form-options__label form-options__label--color">Оранжевый</label>
+              </li>
+            </ul>
+          </div>
+        </fieldset>
+
+
+        <!-- Раздел "ФИО": содержит информацию о Ф.И.О. клиента -->
+        <fieldset class="container order-form__element order-form__element--full-name">
+          <div class="order-form-wrapper">
+            <h2 class="order-form__element-heading order-form__element-heading--full-name">ФИО</h2>
+
+            <!-- Список полей раздела "ФИО" -->
+            <ul class="order-form__element-options-list form-options form-options--name-fields">
+              <li class="form-options__item">
+                <label for="client-name" class="form-options__label">Имя:</label>
+
+                <input type="text" name="client__name" id="client-name" class="form-options__data-entry-field form-options__data-entry-field--name-fields" placeholder="Введите Ваше имя*" required="">
+              </li>
+
+              <li class="form-options__item">
+                <label for="client-surname" class="form-options__label">Фамилия:</label>
+
+                <input type="text" name="client__surname" id="client-surname" class="form-options__data-entry-field form-options__data-entry-field--name-fields" placeholder="Укажите фамилию*" required="">
+              </li>
+
+              <li class="form-options__item">
+                <label for="client-patronymic" class="form-options__label">Отчество:</label>
+
+                <input type="text" name="client__patronymic" id="client-patronymic" class="form-options__data-entry-field form-options__data-entry-field--name-fields" placeholder="Отчество, если желаете">
+              </li>
+            </ul>
+          </div>
+        </fieldset>
+
+
+        <!-- Раздел "Контактная информация": содержит информацию о номере телефона и э/почте клиента -->
+        <fieldset class="order-form__element order-form__element--contact-info">
+          <legend class="visually-hidden">Контактная информация</legend>
+
+          <div class="container order-form-wrapper order-form-wrapper--contact-info">
+            <!-- Подраздел "Тел": поле для номера телефона -->
+            <section class="order-form__element-subsection order-form__element-subsection--tel">
+              <h2 class="order-form__element-heading order-form__element-heading--tel">Тел</h2>
+
+              <!-- Поле для номера телефона -->
+              <!--
+                    Пояснение к паттерну: в данном паттерне учтены разные возможности ввода данных.
+                    Например:
+                      1) первый человек пишет в формате "+71234567890";
+                      2) второй — "+7(123)4567890";
+                      3) третий — "+7 (123) 456 78 90";
+                      4) четвёртый — "+7 (123) 456-78-90";
+                         и т.д.
+
+                    Данный паттерн учитывает, как минимум, все вышеперечисленные особенности ввода.
+              -->
+              <div class="order-form__element-input-container">
+                <input type="tel" pattern="\+7[\s]*[^\w]*[0-9]{3}[\s]*[^\w]*[0-9]{3}[\s]*[^\w]*[0-9]{2}[\s]*[^\w]*[0-9]{2}[\s]*[^\w]*" name="contacts__phone" class="form-options__data-entry-field form-options__data-entry-field--tel" placeholder="+7 XXX XXX XX XX*" required="">
+
+                <svg class="form-options__data-entry-field-icon form-options__data-entry-field-icon--phone">
+                  <use xlink:href="#icon-phone"></use>
+                </svg>
+              </div>
+            </section>
+
+            <!-- Подраздел "Email": поле для э/почты -->
+            <section class="order-form__element-subsection order-form__element-subsection--email">
+              <h2 class="order-form__element-heading order-form__element-heading--email">E-mail</h2>
+
+              <!-- Поле для э/почты -->
+              <div class="order-form__element-input-container">
+                <input type="email" name="contacts__email" class="form-options__data-entry-field form-options__data-entry-field--email" placeholder="Ваш Email*" required="">
+
+                <svg class="form-options__data-entry-field-icon form-options__data-entry-field-icon--email">
+                  <use xlink:href="#icon-mail"></use>
+                </svg>
+              </div>
+            </section>
+          </div>
+        </fieldset>
+
+
+        <!-- Раздел "Доп" — содержит поле для комментария к заказу -->
+        <fieldset class="container order-form__element order-form__element--wishes">
+          <div class="order-form-wrapper">
+            <h2 class="order-form__element-heading order-form__element-heading--wishes">Доп</h2>
+
+            <textarea class="form-options__wishes" placeholder="Опишите все Ваши пожелания к заказу"></textarea>
+          </div>
+        </fieldset>
+
+        <div class="container order-form-wrapper order-form-wrapper--form-footer">
+          <p class="order-form__note">*Поля обязательны для заполнения</p>
+
+          <button type="submit" class="button order-form__submit-button">Отправить заказ</button>
+        </div>
+      </form>
+    </main>
+
+
+    <!--
+    ****************************
+    *** Главный Подвал сайта ***
+    ****************************
+    -->
+    <footer class="site-footer site-footer--form-page">
+      <div class="container site-footer__wrapper">
+        <a href="index.html" class="site-footer__link">
+          <svg class="site-footer__logo">
+            <use xlink:href="#icon-logo-footer"></use>
+          </svg>
+        </a>
+
+        <!-- Секция: "Социальные сети" — содержит ссылки на социальные сети -->
+        <section class="socials">
+          <h2 class="visually-hidden">Социальные сети</h2>
+
+          <!-- Список ссылок на социальные сети -->
+          <ul class="socials__list social-networks">
+            <li class="social-networks__item">
+              <a href="" class="social-networks__link">
+                <span class="visually-hidden">Instagram</span>
+
+                <svg class="social-networks__link-icon social-networks__link-icon--insta">
+                  <use xlink:href="#icon-insta"></use>
+                </svg>
+              </a>
+            </li>
+
+            <li class="social-networks__item">
+              <a href="" class="social-networks__link">
+                <span class="visually-hidden">Facebook</span>
+
+                <svg class="social-networks__link-icon social-networks__link-icon--fb">
+                  <use xlink:href="#icon-fb"></use>
+                </svg>
+              </a>
+            </li>
+
+            <li class="social-networks__item">
+              <a href="" class="social-networks__link">
+                <span class="visually-hidden">Twitter</span>
+
+                <svg class="social-networks__link-icon social-networks__link-icon--twitter">
+                  <use xlink:href="#icon-twitter"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+
+        <!-- Секция: "Информация о разработчике" — содержит ссылку на сайт разработчика -->
+        <section class="copyright">
+          <h2 class="visually-hidden">Информация о разработчике</h2>
+
+          <!-- Блок, содержащий ссылку на сайт разработчика -->
+          <p class="copyright__developer">
+            <a href="https://htmlacademy.ru/intensive/adaptive" class="copyright__developer-link">
+              <span class="copyright__developer-title">Разработано</span>
+              <!-- <span class="visually-hidden">Логотип HTML Academy</span> -->
+
+              <svg class="copyright__developer-logo">
+                <use xlink:href="#icon-htmlacademy"></use>
+              </svg>
+            </a>
+          </p>
+        </section>
+      </div>
+    </footer>
+
+    <!-- Главный скриптовый файл -->
+    <script src="js/scripts.min.js"></script>
+  </body>
+</html>
