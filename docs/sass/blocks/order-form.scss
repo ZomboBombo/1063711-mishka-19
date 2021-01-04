@@ -1,0 +1,291 @@
+.order-form {
+  margin-top: 25px;
+  margin-bottom: 16px;
+}
+
+
+.order-form__element {
+  margin-top: 42px;
+  padding: 0;
+
+  border: none;
+
+  // --- Настройка для первого элемента в Форме ---
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &--color {
+    margin-top: 33px;
+  }
+
+
+  &--full-name {
+    margin-top: 33px;
+  }
+
+
+  &--contact-info {
+    margin-top: 18px;
+  }
+
+
+  &--wishes {
+    margin-top: 33px;
+  }
+}
+
+
+.order-form__element-heading {
+  position: relative;
+
+  margin-top: 0;
+  margin-bottom: 0;
+
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 16px;
+  color: $mint--light;
+  text-transform: uppercase;
+
+
+  // --- Псевдоэлемент — лекоративная линия около заголовка раздела ---
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 7px;
+    left: 62px;
+
+    display: block;
+
+    width: 198px;
+    height: 1px;
+
+    background-color: $mint;
+  }
+}
+
+
+// --- Мини-настройка для псевдоэлемента ::after у загловка подраздела "Email" ---
+.order-form__element-heading--email::after {
+  left: 81px;
+
+  width: 179px;
+}
+
+
+.order-form__element-subsection {
+  margin-top: 14px;
+
+
+  &--email {
+    margin-top: 33px;
+  }
+}
+
+
+// *** Контейнер для полей ввода (раздел "Контактная информация") ***
+.order-form__element-input-container {
+  position: relative;
+}
+
+
+.order-form__note {
+  margin-top: 10px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+
+.order-form__submit-button {
+  width: 260px;
+  min-height: auto;
+
+  margin-top: 31px;
+  margin-left: 2px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+
+  cursor: pointer;
+
+  background-color: transparent;
+}
+
+
+/*
+=======================================================
+=== МЕДИАВЫРАЖЕНИЯ: стили для разных ширин вьюпорта ===
+=======================================================
+*/
+
+// --- 1) Медиа для "Планшетной" версии сайта ---
+@media (min-width: $width--tablet) {
+  .order-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    margin-bottom: 0;
+  }
+
+
+  .order-form__element {
+    margin-top: 0;
+
+
+    &--color {
+      min-height: 304px;
+
+      margin-top: 51px;
+
+
+      background-color: $gray;
+    }
+
+
+    &--full-name {
+      min-height: 304px;
+    }
+
+
+    &--contact-info {
+      min-height: 228px;
+
+      padding-top: 44px;
+
+      background-color: $gray;
+    }
+
+
+    &--wishes {
+      margin-top: 50px;
+    }
+  }
+
+
+  .order-form__element-heading {
+    width: 167px;
+
+
+    // --- Позиционирование заголовков разделов ---
+    &--type {
+      padding-top: 50px;
+    }
+
+    &--color,
+    &--full-name {
+      padding-top: 68px;
+    }
+
+    &--tel {
+      padding-top: 23px;
+    }
+
+    &--email {
+      padding-top: 30px;
+    }
+
+    &--wishes {
+      padding-top: 18px;
+    }
+
+
+    // --- Псевдоэлемент — лекоративная линия около заголовка раздела ---
+    &::after {
+      display: none;
+    }
+  }
+
+
+  .order-form__element-subsection {
+    display: flex;
+
+    margin-top: 0;
+    margin-bottom: 12px;
+
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+  .order-form__element-input-container {
+    width: 100%;
+
+    padding-left: 34px;
+  }
+
+
+  .order-form__note {
+    margin: 0;
+    margin-top: 9px;
+
+    font-size: 17px;
+    line-height: 30px;
+  }
+
+
+  .order-form__submit-button {
+    width: 230px;
+
+    margin: 0;
+    margin-left: -1px;
+  }
+
+
+  /* ------------------------------------------------------------------- */
+  // --- Конец медиа для "Планшетной" версии ---
+}
+
+
+// *** 2) Медиа для "Десктопной" версии сайта ***
+@media (min-width: $width--desktop) {
+  .order-form__element {
+    &--color {
+      min-height: 228px;
+
+      margin-top: 50px;
+    }
+  }
+
+
+  // --- Настройки для разных заголовков разделов ---
+  .order-form__element-heading {
+    &--type {
+      padding-left: 64px;
+    }
+
+    &--color,
+    &--full-name {
+      padding-left: 60px;
+    }
+
+    &--tel {
+      padding-left: 61px;
+    }
+
+    &--email {
+      padding-top: 32px;
+      padding-left: 60px;
+    }
+
+    &--wishes {
+      padding-left: 62px;
+    }
+  }
+
+
+  .order-form__element-input-container {
+    width: 707px;
+
+    padding-left: 7px;
+  }
+
+
+  /* ------------------------------------------------------------------- */
+  // --- Конец медиа для "Десктопной" версии ---
+}

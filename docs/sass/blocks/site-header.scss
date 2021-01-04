@@ -1,0 +1,246 @@
+/*
+
+==============================
+=== КОНТЕЙНЕР для ЛОГОТИПА ===
+==============================
+
+Содержит:
+  1) сам логотип;
+  2) кнопку-бургер открытия/закрытия меню в мобильной версии сайта.
+
+*/
+
+// --- Контейнер для Логотипа магазина ---
+.site-header__logo-placement {
+  position: relative;
+
+  display: flex;
+
+  min-height: 80px;
+}
+
+
+// --- Блок-ссылка, содержащий изображение логотипа ---
+.site-header__logo {
+  margin: auto;
+  margin-top: 22px;
+  margin-right: 118px;
+
+
+  // --- Псевдоклассы для разных состояний Логотипа магазина «Мишка» ---
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+
+/*
+=========================================================================
+=== Кнопка-бургер открытия/закрытия меню (для мобильной версии сайта) ===
+=========================================================================
+*/
+.site-header__toggle {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+
+  transform: translateY(-50%);
+
+  width: 20px;
+  height: 20px;
+
+  border: none;
+  background-color: transparent;
+}
+
+
+.site-header__main-navigation {
+  // Модификатор класса: добавляется при активном JS
+  &--js-active {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 80px;
+    left: 0;
+    z-index: 1;
+
+    width: 100vw;
+    min-height: 315px;
+
+    background-color: $white;
+  }
+
+  &--menu-hidden {
+    display: none;
+  }
+}
+
+
+// --- Стили для последнего элемента списка внутренней навигации (навигации по сайту) ---
+// *** Необходимы для попадания в "Pixel Perfect" ***
+.site-header__inner-navigation .site-navigation__item:last-child {
+  min-height: 81px;
+
+  margin-bottom: 0;
+}
+
+
+// *** Стили для блока с Навигацией по событиям: на "мобильной" и "планшетной" версиях сайта он скрыт ***
+.site-header__events-navigation {
+  display: none;
+}
+
+
+/*
+=======================================================
+=== МЕДИАВЫРАЖЕНИЯ: стили для разных ширин вьюпорта ===
+=======================================================
+*/
+
+// *** 1) Медиа для "Планшетной" версии сайта ***
+@media (min-width: $width--tablet) {
+  .site-header {
+    position: relative;
+
+    display: flex;
+
+    min-height: 88px;
+
+    margin-top: -1px;
+  }
+
+
+  .site-header__logo-placement {
+    width: 320px;
+  }
+
+
+  .site-header__logo {
+    margin: 0;
+    margin-top: 22px;
+    margin-left: -2px;
+  }
+
+
+  .site-header__main-navigation {
+    display: block;
+
+    &--js-active {
+      position: static;
+
+      width: auto;
+      min-height: auto;
+    }
+  }
+
+
+  // --- Настройка сетки для Внутренней навигации (навигации по Сайту) ---
+  .site-header__inner-navigation {
+    position: absolute;
+    top: 100px;
+    left: 0;
+
+    // Свойство "z-index" необходимо для того, чтобы блок .main-content,
+    // спозиционированный абсолютно, не "наплывал" на блок Пользовательской навигации.
+    z-index: 1;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    padding: 0;
+  }
+
+
+  // --- Настройка сетки для Пользовательской навигации ---
+  .site-header__user-navigation {
+    position: relative;
+
+    display: flex;
+
+    // --- Настройка для блока с дополнительной информацией ---
+    &::before {
+      content: "Бесплатная доставка по России";
+
+      position: absolute;
+      top: 106px;
+      right: -2px;
+    }
+  }
+
+
+  // --- Настройка для последнего эл-та списка Внутренней навигации ---
+  .site-header__inner-navigation .site-navigation__item:last-child {
+    min-height: 30px;
+
+    margin-bottom: 0;
+  }
+
+
+  /* ------------------------------------------------------------------- */
+  // --- Конец медиа для "Планшетной" версии ---
+}
+
+
+// *** 2) Медиа для "Десктопной" версии сайта ***
+@media (min-width: $width--desktop) {
+  .site-header__logo-placement {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    z-index: 2;
+
+    transform: translateX(-50%);
+
+    width: auto;
+  }
+
+
+  .site-header__main-navigation {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+
+    &--js-active {
+      position: static;
+
+      flex-direction: row;
+
+      // background-color: transparent;
+    }
+  }
+
+
+  .site-header__inner-navigation {
+    position: static;
+
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    width: 390px;
+  }
+
+
+  .site-header__events-navigation {
+    position: absolute;
+    top: 106px;
+    left: 0;
+    z-index: 1;
+
+    display: flex;
+    align-items: flex-start;
+
+    min-height: auto;
+  }
+
+
+  /* ------------------------------------------------------------------- */
+  // --- Конец медиа для "Десктопной" версии ---
+}

@@ -1,0 +1,62 @@
+.size-list {
+  @include markerless;
+
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 30px;
+}
+
+
+.size-list__item-size {
+  display: flex;
+  justify-content: center;
+
+  width: 82px;
+  min-height: 52px;
+
+  padding-top: 16px;
+
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 16px;
+
+  border: 2px solid rgba($gray--dark, 0.1);
+
+  transition: border-color 0.1s ease;
+
+
+  // --- Псевдоклассы для лейблов при разных состояниях элемента ---
+  &:hover,
+  &:focus {
+    border-color: rgba($gray--dark, 0.3);
+  }
+}
+
+
+/*
+--- Стили для эффекта интерактивности:
+--- когда радиокнопка активна (:checked),
+--- соответствующий лейбл меняет цвет рамки.
+*/
+.size-list__radio:checked + .size-list__item-size {
+  border-color: $mint;
+}
+
+
+/*
+=======================================================
+=== МЕДИАВЫРАЖЕНИЯ: стили для разных ширин вьюпорта ===
+=======================================================
+*/
+
+// --- 1) Медиа для "Планшетной" версии сайта ---
+@media (min-width: $width--tablet) {
+  .size-list__item-size {
+    width: 112px;
+  }
+
+
+  /* ------------------------------------------------------------------- */
+  // --- Конец медиа для "Планшетной" версии ---
+}

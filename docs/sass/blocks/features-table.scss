@@ -1,0 +1,37 @@
+.features-table {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.features-table__row {
+  display: flex;
+
+  border-bottom: 1px solid $gray--lightest;
+}
+
+.features-table__data {
+  display: flex;
+  align-items: center;
+
+  width: 97px;
+  min-height: 39px;
+
+
+  // --- Псевдокалсс для последних ячеек таблицы ---
+  &:last-child {
+    width: auto;
+    max-width: 160px;
+  }
+
+
+  // --- Свойство для названия цвета в таблице секции "Вязаные корзинки" (Цвет: «Тиффани/серый») ---
+  // *** Нужно исключительно для попадания в "Pixel Perefct" ***
+  &--color-name {
+    letter-spacing: -0.5px;
+  }
+}

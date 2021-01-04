@@ -1,0 +1,115 @@
+.contacts {
+  margin-top: 36px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+
+.contacts__heading {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+
+.contacts__heading-text {
+  margin-left: -1px;
+}
+
+
+.contacts__heading-icon {
+  display: none;
+}
+
+
+/*
+=======================================================
+=== МЕДИАВЫРАЖЕНИЯ: стили для разных ширин вьюпорта ===
+=======================================================
+*/
+
+// --- 1) Медиа для "Планшетной" версии сайта ---
+@media (min-width: $width--tablet) {
+  .contacts {
+    margin-top: 46px;
+    padding: 0;
+    padding-right: 3px;
+  }
+
+
+  .contacts__heading-place {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+
+  .contacts__heading {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 0;
+
+    font-size: 43px;
+    line-height: 50px;
+  }
+
+
+  .contacts__heading-text {
+    display: inline-block;
+
+    margin-left: -4px;
+    padding: 0;
+    padding-top: 16px;
+  }
+
+
+  .contacts__heading-icon {
+    display: block;
+
+    width: 47px;
+    height: 81px;
+  }
+
+
+  /* ------------------------------------------------------------------- */
+  // --- Конец медиа для "Планшетной" версии ---
+}
+
+
+// *** 2) Медиа для "Десктопной" версии сайта ***
+@media (min-width: $width--desktop) {
+  .contacts {
+    width: 523px;
+
+    margin: 0;
+    padding: 0;
+    padding-top: 56px;
+    padding-left: 62px;
+  }
+
+
+  .contacts__heading {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    width: 378px;
+
+    font-size: 53px;
+    line-height: 57px;
+  }
+
+
+  .contacts__heading-icon {
+    margin-top: 6px;
+  }
+
+
+  .contacts__info {
+    margin-left: 111px;
+  }
+
+
+  /* ------------------------------------------------------------------- */
+  // --- Конец медиа для "Десктопной" версии ---
+}
